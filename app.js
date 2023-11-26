@@ -9,7 +9,6 @@ const mongoConnect = require('./util/database').mongoConnect;
 /* ------------------ Settings ------------------ */
 
 const app = express();
-const PORT = process.env.PORT || 3000;
 
 app.use(cors());
 
@@ -29,7 +28,7 @@ mongoConnect((client) => {
     app.get('/', (req, res) => {
         res.send('hello world!');
     });
-    app.listen(8080, () => {
-        console.log('server start!');
-    });
+});
+app.listen(3000, () => {
+    console.log('server start!');
 });
