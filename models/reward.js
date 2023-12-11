@@ -2,16 +2,23 @@ const getDb = require('../util/database').getDb;
 const dateFormat = require('../util/dateFormat');
 
 module.exports = class Reward {
-    constructor({ userid = '', reward = '', username = '' } = {}) {
+    constructor({
+        userid = '',
+        reward = '',
+        username = '',
+        turbinName = '',
+    } = {}) {
         this.userid = userid;
         this.reward = reward;
         this.username = username;
+        this.turbinName = turbinName;
+        this.last_updated = dateFormat(new Date());
     }
 
     save() {
         const db = getDb();
         return db
-            .collection('reward')
+            .collection('newreward')
             .insertOne(this)
             .then((result) => console.log(result))
             .catch((err) => {
