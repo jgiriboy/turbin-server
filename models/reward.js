@@ -7,12 +7,14 @@ module.exports = class Reward {
         reward = '',
         username = '',
         turbinName = '',
+        totalReward = '',
     } = {}) {
         this.userid = userid;
         this.reward = reward;
         this.username = username;
         this.turbinName = turbinName;
         this.last_updated = dateFormat(new Date());
+        this.totalReward = totalReward;
     }
 
     save() {

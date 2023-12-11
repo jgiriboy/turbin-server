@@ -25,6 +25,7 @@ exports.postNewReward = async (req, res) => {
         reward: req.body.reward,
         username: req.body.username,
         turbinName: req.body.turbinName,
+        totalReward: req.body.totalReward,
     });
     post.save()
         .then((result) => {
