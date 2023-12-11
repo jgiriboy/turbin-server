@@ -6,6 +6,7 @@ const rewardController = require('../controllers/reward');
 const router = express.Router();
 
 router.get('/reward', rewardController.getReward);
+router.get('/new-reward', rewardController.getNewReward);
 
 router.post('/new-reward', rewardController.postNewReward);
 router.post('/reward', rewardController.postReward);

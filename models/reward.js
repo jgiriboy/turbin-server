@@ -55,4 +55,17 @@ module.exports = class Reward {
             })
             .catch((err) => console.log(err));
     }
+
+    static fetchNewRewardAll() {
+        const db = getDb();
+        return db
+            .collection('newreward')
+            .find()
+            .toArray()
+            .then((reward) => {
+                console.log(reward);
+                return reward;
+            })
+            .catch((err) => console.log(err));
+    }
 };

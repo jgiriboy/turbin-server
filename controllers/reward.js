@@ -7,6 +7,11 @@ exports.getReward = async (req, res) => {
     res.status(200).json(result[0]);
 };
 
+exports.getNewReward = async (req, res) => {
+    const result = await Reward.fetchNewRewardAll();
+    res.status(200).json(result);
+};
+
 exports.postReward = async (req, res) => {
     console.log(req.body);
     Reward.update(req.body.userid, req.body.value);
