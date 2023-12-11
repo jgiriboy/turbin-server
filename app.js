@@ -29,6 +29,6 @@ mongoConnect((client) => {
         res.send('hello world!');
     });
 });
-app.listen(8000, () => {
+app.listen(3000, () => {
     console.log('server start!');
 });
