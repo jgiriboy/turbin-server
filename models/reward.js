@@ -70,4 +70,34 @@ module.exports = class Reward {
             })
             .catch((err) => console.log(err));
     }
+
+    static enableQrCode(statusCode) {
+        const db = getDb();
+        return db
+            .collection('qrcode')
+            .updateOne(
+                { id: 'qr' },
+                {
+                    $set: { status: statusCode },
+                }
+            )
+            .then((status) => {
+                console.log(status);
+                return reward;
+            })
+            .catch((err) => console.log(err));
+    }
+
+    static getQrStatus() {
+        const db = getDb();
+        return db
+            .collection('qrcode')
+            .find()
+            .toArray()
+            .then((status) => {
+                console.log(status);
+                return status;
+            })
+            .catch((err) => console.log(err));
+    }
 };

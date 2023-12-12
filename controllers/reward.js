@@ -3,7 +3,7 @@ const Reward = require('../models/reward');
 
 exports.getReward = async (req, res) => {
     const result = await Reward.fetchAll();
-    console.log('success to retrive data from reward');
+    console.log('success to retrive data from reward', result[0]);
     res.status(200).json(result[0]);
 };
 
@@ -33,4 +33,14 @@ exports.postNewReward = async (req, res) => {
         })
         .catch((err) => console.log(err));
     res.status(200).send('success to update reward');
+};
+
+exports.postQrCode = async (req, res) => {
+    const result = await Reward.enableQrCode(req.body.qrStatus);
+    res.status(200).send('qr enabled');
+};
+
+exports.getQrCode = async (req, res) => {
+    const result = await Reward.getQrStatus();
+    res.status(200).json(result[0]);
 };
